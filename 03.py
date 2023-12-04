@@ -1,16 +1,12 @@
 # Open the file and split on new lines
 from typing import DefaultDict
 
-
 with open("input03.txt") as file:
     data = file.read().strip().split("\n")
 
 # Augment the data
 data = ["." + line + "." for line in data]
 data = ["." * len(data[0])] + data + ["." * len(data[0])]
-
-for line in data:
-    print(line)
 
 # Part 1
 res = 0
@@ -79,7 +75,6 @@ for idx_row, row in enumerate(data):
                 for loc_row in range(idx_row - 1, idx_row + 2):
                     for loc_col in range(idx_col, idx_col + 2 + num_length):
                         if data[loc_row][loc_col] == "*":
-                            print(loc_row, loc_col)
                             gears[(loc_row, loc_col)].append(num)
 
 res = 0
